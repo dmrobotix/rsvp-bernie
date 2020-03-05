@@ -33,13 +33,13 @@ formUpload.addEventListener('submit', function(e) {
     if (!response.ok) {
       throw data.error
     } else {
-      let custom = ""
+      let custom = message
       fName = data.firstName;
       lName = data.lastName;
       phone = data.phone;
       status = data.status;
 
-      custom = message.replace(regExF,fName[0])
+      custom = custom.replace(regExF,fName[0])
       custom = custom.replace(regExL,lName[0])
       custom = custom.replace(regExH,hName)
 
@@ -65,7 +65,7 @@ formUpload.addEventListener('submit', function(e) {
 /* flip through contacts */
 const nextBtn = document.getElementById('contactNext')
 nextBtn.addEventListener('click', function(e) {
-  let custom = ""
+  let custom = message
   const counter = Number(document.getElementById('contactNext').dataset.count)
   if (counter + 1 <= phone.length) {
     custom = message.replace(regExF,fName[counter])
