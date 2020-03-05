@@ -8,13 +8,13 @@ if (empty($errors)) {
   $fileSplit = explode('.',$fileName);
   $fileExt = array_search('csv',$fileSplit);
   $dir = "/home/margotbi/www/rsvp-bernie/docs/";
-  if(move_uploaded_file($fileLoc, $dir.$fileName)) {
+  /*if(move_uploaded_file($fileLoc, $dir.$fileName)) {
     echo "uploaded";
     exit();
   } else {
     print_r(array($fileLoc,$dir.$fileName));
     exit();
-  }
+  }*/
 
   if ($fileSplit[$fileExt] == 'csv') {
 
@@ -28,7 +28,7 @@ if (empty($errors)) {
     $lNames = [];
     $phoneNums = [];
     $status = [];
-    if (($handle = fopen(".../docs/".$fileName)) !== FALSE) {
+    if (($handle = fopen($fileLoc)) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if ($row == 1) {
           $num = count($data);
@@ -65,7 +65,7 @@ if (empty($errors)) {
     } else {
       // doesn't exist for some reason
       http_response_code(400);
-      print_r(".../docs/".$fileName);
+      print_r(array($fileLoc,$dir.$fileName));
       exit();
       //echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
     } // if handle exists
