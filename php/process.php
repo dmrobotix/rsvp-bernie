@@ -4,6 +4,7 @@ $errors = $_FILES['file']['error'];
 if (empty($errors)) {
   // do stuff
   $fileName = strtolower($_FILES['file']['name']);
+  $fileLoc = $_FILES['file']['tmpname'];
   $fileSplit = explode('.',$fileName);
   $fileExt = array_search('csv',$fileSplit);
 
@@ -19,7 +20,7 @@ if (empty($errors)) {
     $lNames = [];
     $phoneNums = [];
     $status = [];
-    if (($handle = fopen($fileExt . '/' . $fileName)) !== FALSE) {
+    if (($handle = fopen($fileLoc . '/' . $fileName)) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if ($row == 1) {
           $num = count($data);
@@ -40,9 +41,6 @@ if (empty($errors)) {
             } // switch to find columns of interest
           } // for each column in row
           $row = $row + 1;
-          http_response_code(200);
-          echo json_encode(array('keys' => array($cfN, $clN, $cp, $cs)));
-          exit();
         } else {
           if ($cfN == -1 || $clN == -1 || $cp == -1 || $cs == -1) {
             http_response_code(400);
@@ -56,6 +54,11 @@ if (empty($errors)) {
           }
         } // if first row
       } // while there is data
+    } else {
+      // doesn't exist for some reason
+      http_response_code(400);
+      print_r($fileLoc . '/' . $fileName));
+      //echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
     } // if handle exists
   } else {
     http_response_code(400);
