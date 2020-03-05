@@ -40,7 +40,7 @@ if (empty($errors)) {
           } // for each column in row
         } else {
           if ($cfN == -1 || $clN == -1 || $cp == -1 || $cs == -1) {
-            return json_encode(['error' => 'Unable to process file, missing some columns.']);
+            return json_encode(array('error' => 'Unable to process file, missing some columns.'));
           } else {
             $fNames[] = $data[$cfN];
             $lNames[] = $data[$clN];
@@ -51,14 +51,13 @@ if (empty($errors)) {
       } // while there is data
     } // if handle exists
   } else {
-    return json_encode(['error' => 'The file is not a CSV.']);
+    return json_encode(array('error' => 'The file is not a CSV.'));
   }
   fclose($handle);
   if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($status) == 0) {
-    return json_encode(['error' => 'CSV is missing data.']);
+    return json_encode(array('error' => 'CSV is missing data.'));
   } else {
-    return json_encode(['firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'status' => $status]);  
+    return json_encode(array('firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'status' => $status));
   } // check that the columns were found and array populated
 } // if there are errors
-print_r($_FILES);
 ?>
