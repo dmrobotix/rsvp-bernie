@@ -31,25 +31,34 @@
         <label class="custom-file-label" for="customFile">Choose file</label>
       </div>
       <div class="form-group mt-3">
+        <label for="hostName">Host's name</label>
+        <input id="hostName" type="text" class="form-control">
+      </div>
+      <div class="form-group mt-3">
         <label for="message">Enter your message, use [HostFirstName], [FirstName] and [LastName] as placeholders.</label>
         <textarea id="message" class="form-control" placeholder="Hi, [FirstName]! This is [HostFirstName], can I count on you to attend my event?"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      <button type="submit" class="btn btn-primary mt-0">Submit</button>
       </form>
     </div>
-    <div id="contactCard" class="col-6 offset-3 mt-5 card">
-      <div class="card-body">
-        <div id="stats">
-            <p>Total RSVP'd: <span class="totalRSVP"></span></p>
-            <p>Contact: <span id="contactCount"></span> / <span class="totalRSVP"></span></p>
-            <p>Phone Number: <span id="phone"></span>
-            <hr>
+    <div class="col-6 offset-3 mt-5">
+      <div id="contactCard" class="card">
+        <div class="card-header">
+          <p>Total RSVP'd: <span class="totalRSVP"></span></p>
+          <button type="submit" id="contactNext" data-count="0" class="btn btn-primary">Next Contact</button>
         </div>
-        <div id="messageDisplay">
+        <div class="card-body">
+          <div id="stats">
+
+              <p>Contact: <span id="contactCount"></span> / <span class="totalRSVP"></span></p>
+              <p>Phone Number: <span id="phone"></span>
+              <hr>
+          </div>
+          <div id="messageDisplay">
+          </div>
         </div>
-        <button type="submit" id="contact" data-count="0" class="btn btn-primary mt-3">Next Contact</button>
       </div>
-    </div>
+  </div>
   </div>
 </body>
 <script
