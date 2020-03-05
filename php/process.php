@@ -4,7 +4,7 @@ $errors = $_FILES['file']['error'];
 if (empty($errors)) {
   // do stuff
   $fileName = strtolower($_FILES['file']['name']);
-  $fileLoc = $_FILES['file']['tmpname'];
+  $fileLoc = $_FILES['file']['tmp_name'];
   $fileSplit = explode('.',$fileName);
   $fileExt = array_search('csv',$fileSplit);
   $dir = "/home/margotbi/www/rsvp-bernie/docs/";
