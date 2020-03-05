@@ -39,8 +39,10 @@ if (empty($errors)) {
                 break;
             } // switch to find columns of interest
           } // for each column in row
+          $row = $row + 1;
           http_response_code(200);
           echo json_encode(array('keys' => array($cfN, $clN, $cp, $cs)));
+          return 0;
         } else {
           if ($cfN == -1 || $clN == -1 || $cp == -1 || $cs == -1) {
             http_response_code(400);
