@@ -95,6 +95,6 @@ prevBtn.addEventListener('click', function(e) {
     document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter - 1
   } else {
-    nextBtn.disabled = true
+    prevBtn.disabled = true
   }
 })
