@@ -34,7 +34,6 @@ formUpload.addEventListener('submit', function(e) {
       throw data.error
     } else {
       var custom = message
-      console.log(custom)
       fName = data.firstName;
       lName = data.lastName;
       phone = data.phone;
@@ -67,7 +66,6 @@ formUpload.addEventListener('submit', function(e) {
 const nextBtn = document.getElementById('contactNext')
 nextBtn.addEventListener('click', function(e) {
   var custom = message
-  console.log(custom)
   const counter = Number(document.getElementById('contactNext').dataset.count)
   if (counter + 1 <= phone.length) {
     custom = custom.replace(regExF,fName[counter])
@@ -78,6 +76,24 @@ nextBtn.addEventListener('click', function(e) {
     document.getElementById('phone').innerHTML = phone[counter]
     document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter + 1;
+  } else {
+    nextBtn.disabled = true
+  }
+})
+
+const prevBtn = document.getElementById('contactPrev')
+prevBtn.addEventListener('click', function(e) {
+  var custom = message
+  const counter = Number(document.getElementById('contactNext').dataset.count)
+  if (counter > 1) {
+    custom = custom.replace(regExF,fName[counter-1])
+    custom = custom.replace(regExL,lName[counter-1])
+    custom = custom.replace(regExH,hName)
+
+    document.getElementById('contactCount').innerHTML = counter
+    document.getElementById('phone').innerHTML = phone[counter]
+    document.getElementById('messageDisplay').innerHTML = custom
+    document.getElementById('contactNext').dataset.count = counter;
   } else {
     nextBtn.disabled = true
   }
