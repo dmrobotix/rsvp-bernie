@@ -67,7 +67,7 @@ const nextBtn = document.getElementById('contactNext')
 nextBtn.addEventListener('click', function(e) {
   var custom = message
   const counter = Number(document.getElementById('contactNext').dataset.count)
-  if (counter > 1) {
+  if (counter >= 1) {
     prevBtn.disabled = false
   }
   if (counter + 1 <= phone.length) {
@@ -88,7 +88,7 @@ const prevBtn = document.getElementById('contactPrev')
 prevBtn.addEventListener('click', function(e) {
   var custom = message
   const counter = Number(document.getElementById('contactNext').dataset.count)
-  if (counter <= phone.length) {
+  if (counter <= phone.length-1) {
     nextBtn.disabled = false
   }
   if (counter > 1) {
