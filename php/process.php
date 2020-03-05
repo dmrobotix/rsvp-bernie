@@ -7,7 +7,7 @@ if (empty($errors)) {
   $fileLoc = $_FILES['file']['tmpname'];
   $fileSplit = explode('.',$fileName);
   $fileExt = array_search('csv',$fileSplit);
-  if(move_uploaded_file($fileLoc, $fileName)) {
+  if(move_uploaded_file($fileLoc, ".../docs/".$fileName)) {
     echo "uploaded";
     exit();
   } else {
