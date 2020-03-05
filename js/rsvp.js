@@ -39,8 +39,8 @@ formUpload.addEventListener('submit', function(e) {
       status = data.status;
 
       message = message.replace(regExF,fName[0])
-      message = message.replace(regExL,lName[0])
-      message = message.replace(regExH,hName)
+      custom = custom.replace(regExL,lName[0])
+      custom = custom.replace(regExH,hName)
 
       const total = document.getElementsByClassName('totalRSVP')
       for(var i=0; i<total.length; i++) {
@@ -65,10 +65,10 @@ formUpload.addEventListener('submit', function(e) {
 const nextBtn = document.getElementById('contactNext')
 nextBtn.addEventListener('click', function(e) {
   const counter = Number(document.getElementById('contactNext').dataset.count)
-  if (counter + 1 < phone.length) {
-    message = message.replace(regExF,fName[counter])
-    message = message.replace(regExL,lName[counter])
-    message = message.replace(regExH,hName)
+  if (counter + 1 <= phone.length) {
+    custom = message.replace(regExF,fName[counter])
+    custom = custom.replace(regExL,lName[counter])
+    custom = custom.replace(regExH,hName)
 
     document.getElementById('contactCount').innerHTML = counter + 1
     document.getElementById('phone').innerHTML = phone[counter]
