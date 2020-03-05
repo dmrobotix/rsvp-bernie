@@ -5,6 +5,7 @@ if (empty($errors)) {
   // do stuff
   $fileName = $_FILES['file']['name'];
   $fileExt = explode('.',$fileName)[1];
+  print_r($fileExt)
 
   if (strtolower($filExt) == 'csv') {
     $fileLoc = $_FILES['file']['tmp_name'];
@@ -42,6 +43,7 @@ if (empty($errors)) {
           if ($cfN == -1 || $clN == -1 || $cp == -1 || $cs == -1) {
             http_response_code(400);
             echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
+            return 0;
           } else {
             $fNames[] = $data[$cfN];
             $lNames[] = $data[$clN];
@@ -54,14 +56,17 @@ if (empty($errors)) {
   } else {
     http_response_code(400);
     echo json_encode(array('error' => 'The file is not a CSV.'));
+    return 0;
   }
   fclose($handle);
   if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($status) == 0) {
     http_response_code(400);
     echo json_encode(array('error' => 'CSV is missing data.'));
+    return 0;
   } else {
     http_response_code(200);
     echo json_encode(array('firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'status' => $status));
+    return 0;
   } // check that the columns were found and array populated
 } // if there are errors
 ?>
