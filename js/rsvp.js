@@ -24,9 +24,10 @@ formUpload.addEventListener('submit', function(e) {
     if (!response.ok) {
       console.log(data)
       throw data
+    } else {
+      console.log(data)
     }
   })
-  .then(response => console.log(response))
   .catch(error => {
     console.log(error)
   })
