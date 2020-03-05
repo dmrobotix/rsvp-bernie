@@ -36,9 +36,8 @@ formUpload.addEventListener('submit', function(e) {
       for(var i=0; i<total.length; i++) {
         total[i].innerHTML = fName.length;
       }
-      total.forEach(function(element,index) {element.innerHTML = fName.length})
-      document.getElementById('contactCount').innerHTML = 1;
-      document.getElementById('phone').innerHTML = phone[0];
+      document.getElementById('contactCount').innerHTML = 1
+      document.getElementById('phone').innerHTML = phone[0]
       document.getElementById('messageDisplay').innerHTML = fName[0]+" "+lName[0]
       console.log(data)
     }
