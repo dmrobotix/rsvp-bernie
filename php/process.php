@@ -8,15 +8,13 @@ if (empty($errors)) {
   $fileSplit = explode('.',$fileName);
   $fileExt = array_search('csv',$fileSplit);
   $dir = "/home/margotbi/www/rsvp-bernie/docs/";
-  /*if(move_uploaded_file($fileLoc, $dir.$fileName)) {
-    echo "uploaded";
-    exit();
-  } else {
-    print_r(array($fileLoc,$dir.$fileName));
-    exit();
-  }*/
 
   if ($fileSplit[$fileExt] == 'csv') {
+    if(!move_uploaded_file($fileLoc, $dir.$fileName)) {
+      http_response_code(400);
+      print_r(array($fileLoc,$dir.$fileName));
+      exit();
+    }
 
     // process file
     $row = 1;
