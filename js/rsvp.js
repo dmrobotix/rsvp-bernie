@@ -6,9 +6,11 @@ $(document).ready(function () {
 
 /* form input submit button */
 const formUpload = document.getElementById('formUpload')
+var message, fName, lName, phone, status;
 formUpload.addEventListener('submit', function(e) {
   e.preventDefault()
-
+  message = document.getElementById('message').value
+  console.log(message)
   const file = document.getElementById('fileInput').files[0]
   const formData = new FormData()
   const url = "https://www.margotbits.com/rsvp-bernie/php/process.php"
@@ -22,13 +24,20 @@ formUpload.addEventListener('submit', function(e) {
   .then(async response => {
     let data = await response.json()
     if (!response.ok) {
-      console.log(data)
-      throw data
+      throw data.error
     } else {
+      fName = data.firstName;
+      lName = data.lastName;
+      phone = data.phone;
+      status = data.status;
+
+      document.getElementById('totalRSVP').innerHTML = fName.length;
+      document.getElementById('messageDisplay').innerHTML = fName[0]+" "+lName[0]
       console.log(data)
     }
   })
   .catch(error => {
+    // TODO: display error in an alert box
     console.log(error)
   })
 

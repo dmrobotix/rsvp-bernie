@@ -26,12 +26,27 @@
     <div class="col-6 offset-3 mt-5">
       <h2>Upload your Mobilize CSV file</h2>
       <form id="formUpload">
-      <div class="custom-file form-group">
+      <div class="custom-file form-group mt-3">
         <input id="fileInput" type="file" class="custom-file-input" id="customFile">
         <label class="custom-file-label" for="customFile">Choose file</label>
       </div>
+      <div class="form-group mt-3">
+        <label for="message">Enter your message, use [HostFirstName], [FirstName] and [LastName] as placeholders.</label>
+        <textarea id="message" class="form-control" placeholder="Hi, [FirstName]! This is [HostFirstName], can I count on you to attend my event?"></textarea>
+      </div>
       <button type="submit" class="btn btn-primary mt-3">Submit</button>
       </form>
+    </div>
+    <div id="contactCard" class="col-6 offset-3 mt-5 card">
+      <div class="card-body">
+        <div id="stats">
+            <p>Total RSVP'd: <span id="totalRSVP"></span></p>
+            <hr>
+        </div>
+        <div id="messageDisplay">
+        </div>
+        <button type="submit" id="contact" data-count="0" class="btn btn-primary mt-3">Next Contact</button>
+      </div>
     </div>
   </div>
 </body>
