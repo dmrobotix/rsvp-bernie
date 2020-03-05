@@ -75,7 +75,7 @@ nextBtn.addEventListener('click', function(e) {
     document.getElementById('contactCount').innerHTML = counter + 1
     document.getElementById('phone').innerHTML = phone[counter]
     document.getElementById('messageDisplay').innerHTML = custom
-    document.getElementById('contactNext').dataset.count = counter + 1;
+    document.getElementById('contactNext').dataset.count = counter + 1
   } else {
     nextBtn.disabled = true
   }
@@ -85,15 +85,15 @@ const prevBtn = document.getElementById('contactPrev')
 prevBtn.addEventListener('click', function(e) {
   var custom = message
   const counter = Number(document.getElementById('contactNext').dataset.count)
-  if (counter > 0) {
-    custom = custom.replace(regExF,fName[counter-1])
-    custom = custom.replace(regExL,lName[counter-1])
+  if (counter > 1) {
+    custom = custom.replace(regExF,fName[counter-2])
+    custom = custom.replace(regExL,lName[counter-2])
     custom = custom.replace(regExH,hName)
 
-    document.getElementById('contactCount').innerHTML = counter
-    document.getElementById('phone').innerHTML = phone[counter-1]
+    document.getElementById('contactCount').innerHTML = counter - 1
+    document.getElementById('phone').innerHTML = phone[counter-2]
     document.getElementById('messageDisplay').innerHTML = custom
-    document.getElementById('contactPrev').dataset.count = counter;
+    document.getElementById('contactNext').dataset.count = counter - 1
   } else {
     nextBtn.disabled = true
   }
