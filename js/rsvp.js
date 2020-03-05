@@ -84,16 +84,16 @@ nextBtn.addEventListener('click', function(e) {
 const prevBtn = document.getElementById('contactPrev')
 prevBtn.addEventListener('click', function(e) {
   var custom = message
-  const counter = Number(document.getElementById('contactPrev').dataset.count)
-  if (counter > 1) {
+  const counter = Number(document.getElementById('contactNext').dataset.count)
+  if (counter > 0) {
     custom = custom.replace(regExF,fName[counter-1])
     custom = custom.replace(regExL,lName[counter-1])
     custom = custom.replace(regExH,hName)
 
-    document.getElementById('contactCount').innerHTML = counter-1
+    document.getElementById('contactCount').innerHTML = counter
     document.getElementById('phone').innerHTML = phone[counter-1]
     document.getElementById('messageDisplay').innerHTML = custom
-    document.getElementById('contactPrev').dataset.count = counter-1;
+    document.getElementById('contactPrev').dataset.count = counter;
   } else {
     nextBtn.disabled = true
   }
