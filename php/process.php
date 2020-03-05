@@ -11,6 +11,7 @@ if (empty($errors)) {
 
   if ($fileSplit[$fileExt] == 'csv') {
     if(!move_uploaded_file($fileLoc, $dir.$fileName)) {
+      // TODO: create a group to add php/www and chmod back to 644 or something like that
       http_response_code(400);
       print_r(array($fileLoc,$dir.$fileName));
       exit();
@@ -26,7 +27,7 @@ if (empty($errors)) {
     $lNames = [];
     $phoneNums = [];
     $status = [];
-    if (($handle = fopen($dir.$fileName)) !== FALSE) {
+    if (($handle = fopen($dir.$fileName,'r')) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if ($row == 1) {
           $num = count($data);
