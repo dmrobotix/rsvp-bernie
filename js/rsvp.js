@@ -91,9 +91,9 @@ prevBtn.addEventListener('click', function(e) {
     custom = custom.replace(regExH,hName)
 
     document.getElementById('contactCount').innerHTML = counter
-    document.getElementById('phone').innerHTML = phone[counter]
+    document.getElementById('phone').innerHTML = phone[counter-1]
     document.getElementById('messageDisplay').innerHTML = custom
-    document.getElementById('contactNext').dataset.count = counter;
+    document.getElementById('contactPrev').dataset.count = counter;
   } else {
     nextBtn.disabled = true
   }
