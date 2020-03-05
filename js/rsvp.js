@@ -84,7 +84,7 @@ nextBtn.addEventListener('click', function(e) {
 const prevBtn = document.getElementById('contactPrev')
 prevBtn.addEventListener('click', function(e) {
   var custom = message
-  const counter = Number(document.getElementById('contactNext').dataset.count)
+  const counter = Number(document.getElementById('contactPrev').dataset.count)
   if (counter > 1) {
     custom = custom.replace(regExF,fName[counter-1])
     custom = custom.replace(regExL,lName[counter-1])
