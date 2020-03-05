@@ -67,6 +67,9 @@ const nextBtn = document.getElementById('contactNext')
 nextBtn.addEventListener('click', function(e) {
   var custom = message
   const counter = Number(document.getElementById('contactNext').dataset.count)
+  if (counter > 1) {
+    prevBtn.disabled = false
+  }
   if (counter + 1 <= phone.length) {
     custom = custom.replace(regExF,fName[counter])
     custom = custom.replace(regExL,lName[counter])
@@ -85,6 +88,9 @@ const prevBtn = document.getElementById('contactPrev')
 prevBtn.addEventListener('click', function(e) {
   var custom = message
   const counter = Number(document.getElementById('contactNext').dataset.count)
+  if (counter <= phone.length) {
+    nextBtn.disabled = false
+  }
   if (counter > 1) {
     custom = custom.replace(regExF,fName[counter-2])
     custom = custom.replace(regExL,lName[counter-2])
