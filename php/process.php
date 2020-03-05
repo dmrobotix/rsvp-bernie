@@ -20,7 +20,7 @@ if (empty($errors)) {
     $lNames = [];
     $phoneNums = [];
     $status = [];
-    if (($handle = fopen($fileLoc . '/' . $fileName)) !== FALSE) {
+    if (($handle = fopen($fileLoc)) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if ($row == 1) {
           $num = count($data);
@@ -57,7 +57,8 @@ if (empty($errors)) {
     } else {
       // doesn't exist for some reason
       http_response_code(400);
-      print_r($fileLoc . '/' . $fileName);
+      print_r($fileLoc);
+      exit();
       //echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
     } // if handle exists
   } else {
