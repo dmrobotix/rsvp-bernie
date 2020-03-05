@@ -13,7 +13,7 @@ if (empty($errors)) {
     if(!move_uploaded_file($fileLoc, $dir.$fileName)) {
       // TODO: create a group to add php/www and chmod back to 644 or something like that
       http_response_code(400);
-      print_r(array($fileLoc,$dir.$fileName));
+      echo json_encode(array('error' => 'File uploade failed.'));
       exit();
     }
 
@@ -64,7 +64,7 @@ if (empty($errors)) {
     } else {
       // doesn't exist for some reason
       http_response_code(400);
-      print_r(array($fileLoc,$dir.$fileName));
+      echo json_encode(array('error' => 'Problem finding file on server.'));
       exit();
       //echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
     } // if handle exists
@@ -74,6 +74,7 @@ if (empty($errors)) {
     exit();
   }
   fclose($handle);
+  unlink($dir.$fileName);
   if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($status) == 0) {
     http_response_code(400);
     echo json_encode(array('error' => 'CSV is missing data.'));
