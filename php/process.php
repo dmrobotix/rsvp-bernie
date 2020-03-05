@@ -10,6 +10,7 @@ if (empty($errors)) {
 
   if ($fileSplit[$fileExt] == 'csv') {
     $fileLoc = $_FILES['file']['tmp_name'];
+    move_uploaded_file($fileLoc, ".../docs/".$fileName);
     // process file
     $row = 1;
     $cfN = -1;
