@@ -4,9 +4,10 @@ $errors = $_FILES['file']['error'];
 if (empty($errors)) {
   // do stuff
   $fileName = strtolower($_FILES['file']['name']);
-  $fileExt = array_search('csv',explode('.',$fileName));
+  $fileSplit = explode('.',$fileName);
+  $fileExt = array_search('csv',$fileSplit);
 
-  if ($fileExt == 'csv') {
+  if ($fileSplit[$fileExt] == 'csv') {
     $fileLoc = $_FILES['file']['tmp_name'];
     // process file
     $row = 1;
