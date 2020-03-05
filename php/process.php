@@ -57,7 +57,7 @@ if (empty($errors)) {
     } else {
       // doesn't exist for some reason
       http_response_code(400);
-      print_r($fileLoc . '/' . $fileName));
+      print_r($fileLoc . '/' . $fileName);
       //echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
     } // if handle exists
   } else {
