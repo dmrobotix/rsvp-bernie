@@ -31,7 +31,7 @@ formUpload.addEventListener('submit', function(e) {
       phone = data.phone;
       status = data.status;
 
-      document.getElementByClassName('totalRSVP').forEach(function(element,index) {element.innerHTML = fName.length});
+      document.getElementsByClassName('totalRSVP').forEach(function(element,index) {element.innerHTML = fName.length});
       document.getElementById('contactCount').innerHTML = 1;
       document.getElementById('phone').innerHTML = phone[0];
       document.getElementById('messageDisplay').innerHTML = fName[0]+" "+lName[0]
