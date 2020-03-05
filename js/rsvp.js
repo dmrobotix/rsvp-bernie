@@ -39,7 +39,7 @@ formUpload.addEventListener('submit', function(e) {
       phone = data.phone;
       status = data.status;
 
-      message = message.replace(regExF,fName[0])
+      custom = message.replace(regExF,fName[0])
       custom = custom.replace(regExL,lName[0])
       custom = custom.replace(regExH,hName)
 
