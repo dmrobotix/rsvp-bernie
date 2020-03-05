@@ -5,7 +5,7 @@ if (empty($errors)) {
   // do stuff
   $fileName = $_FILES['file']['name'];
   $fileExt = explode('.',$fileName)[1];
-  print_r($fileExt)
+  print_r($fileExt);
 
   if (strtolower($filExt) == 'csv') {
     $fileLoc = $_FILES['file']['tmp_name'];
