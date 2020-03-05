@@ -34,6 +34,7 @@ formUpload.addEventListener('submit', function(e) {
       throw data.error
     } else {
       let custom = message
+      console.log(custom)
       fName = data.firstName;
       lName = data.lastName;
       phone = data.phone;
