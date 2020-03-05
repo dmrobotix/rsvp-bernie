@@ -18,8 +18,17 @@ formUpload.addEventListener('submit', function(e) {
   fetch(url, {
     method: 'POST',
     body: formData
-  }).then(response => {
-    console.log(response)
+  })
+  .then(async response => {
+    let data = await response.json()
+    if (!response.ok) {
+      console.log(data)
+      throw data
+    }
+  })
+  .then(response => console.log(response))
+  .catch(error => {
+    console.log(error)
   })
 
 })

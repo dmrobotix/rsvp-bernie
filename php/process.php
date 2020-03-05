@@ -13,7 +13,7 @@ if (empty($errors)) {
     if(!move_uploaded_file($fileLoc, $dir.$fileName)) {
       // TODO: create a group to add php/www and chmod back to 644 or something like that
       http_response_code(400);
-      echo json_encode(array('error' => 'File uploade failed.'));
+      echo json_encode(array('error' => 'File upload failed.'));
       exit();
     }
 
