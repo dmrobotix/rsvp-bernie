@@ -4,6 +4,7 @@ $errors = $_FILES['file']['error'];
 if (empty($errors)) {
   // do stuff
   $fileName = $_FILES['file']['name'];
+  print_r($fileName);
   $fileExt = explode('.',$fileName)[1];
   print_r($fileExt);
 
