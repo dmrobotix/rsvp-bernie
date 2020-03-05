@@ -11,7 +11,7 @@ var message, fName, lName, phone, status;
 var regEx = /\[\w+\]/g
 var regExF = /\[FirstName+\]/g
 var regExL = /\[LastName+\]/g
-var regExH = /\[HostName+\]/g
+var regExH = /\[HostFirstName+\]/g
 formUpload.addEventListener('submit', function(e) {
   e.preventDefault()
   message = document.getElementById('message').value
@@ -36,9 +36,9 @@ formUpload.addEventListener('submit', function(e) {
       phone = data.phone;
       status = data.status;
 
-      message.replace(regExF,fName[0])
-      message.replace(regExL,lName[0])
-      message.replace(regExH,hName)
+      message = message.replace(regExF,fName[0])
+      message = message.replace(regExL,lName[0])
+      message = message.replace(regExH,hName)
 
       const total = document.getElementsByClassName('totalRSVP');
       for(var i=0; i<total.length; i++) {
