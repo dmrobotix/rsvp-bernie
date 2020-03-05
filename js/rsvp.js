@@ -11,7 +11,7 @@ formUpload.addEventListener('submit', function(e) {
 
   const file = document.getElementById('fileInput').files[0]
   const formData = new FormData()
-  const url = "/php/process.php"
+  const url = "https://www.margotbits.com/rsvp-bernie/php/process.php"
 
   formData.append('file',file)
 
