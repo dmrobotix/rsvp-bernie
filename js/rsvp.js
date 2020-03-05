@@ -50,7 +50,7 @@ formUpload.addEventListener('submit', function(e) {
       }
       document.getElementById('contactCount').innerHTML = 1
       document.getElementById('phone').innerHTML = phone[0]
-      document.getElementById('messageDisplay').innerHTML = message
+      document.getElementById('messageDisplay').innerHTML = custom
       const counter = Number(document.getElementById('contactNext').dataset.count)
       document.getElementById('contactNext').dataset.count = counter + 1;
       //console.log(data)
@@ -76,7 +76,7 @@ nextBtn.addEventListener('click', function(e) {
 
     document.getElementById('contactCount').innerHTML = counter + 1
     document.getElementById('phone').innerHTML = phone[counter]
-    document.getElementById('messageDisplay').innerHTML = message
+    document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter + 1;
   } else {
     nextBtn.disabled = true
