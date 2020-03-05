@@ -26,7 +26,7 @@ if (empty($errors)) {
     $lNames = [];
     $phoneNums = [];
     $status = [];
-    if (($handle = fopen($fileLoc)) !== FALSE) {
+    if (($handle = fopen($dir.$fileName)) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if ($row == 1) {
           $num = count($data);
