@@ -38,7 +38,6 @@ formUpload.addEventListener('submit', function(e) {
       lName = data.lastName
       phone = data.phone
       rsvp = data.rsvp
-      console.log(rsvp[0])
 
       custom = custom.replace(regExF,fName[0])
       custom = custom.replace(regExL,lName[0])
@@ -51,7 +50,7 @@ formUpload.addEventListener('submit', function(e) {
       document.getElementById('contactCount').innerHTML = 1
       document.getElementById('phone').innerHTML = phone[0]
       document.getElementById('name').innerHTML = fName[0] + ' ' + lName[0]
-      document.getElementById('status').innerHTML = status[0]
+      document.getElementById('rsvp').innerHTML = rsvp[0]
       document.getElementById('messageDisplay').innerHTML = custom
       const counter = Number(document.getElementById('contactNext').dataset.count)
       document.getElementById('contactNext').dataset.count = counter + 1;
@@ -81,7 +80,7 @@ nextBtn.addEventListener('click', function(e) {
     document.getElementById('contactCount').innerHTML = counter + 1
     document.getElementById('phone').innerHTML = phone[counter]
     document.getElementById('name').innerHTML = fName[counter] + ' ' + lName[counter]
-    document.getElementById('status').innerHTML = status[counter]
+    document.getElementById('rsvp').innerHTML = rsvp[counter]
     document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter + 1
   } else {
@@ -104,7 +103,7 @@ prevBtn.addEventListener('click', function(e) {
     document.getElementById('contactCount').innerHTML = counter - 1
     document.getElementById('phone').innerHTML = phone[counter-2]
     document.getElementById('name').innerHTML = fName[counter-2] + ' ' + lName[counter-2]
-    document.getElementById('status').innerHTML = status[counter-2]
+    document.getElementById('rsvp').innerHTML = rsvp[counter-2]
     document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter - 1
   } else {
