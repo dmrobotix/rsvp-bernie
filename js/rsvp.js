@@ -77,6 +77,8 @@ nextBtn.addEventListener('click', function(e) {
 
     document.getElementById('contactCount').innerHTML = counter + 1
     document.getElementById('phone').innerHTML = phone[counter]
+    document.getElementById('name').innerHTML = fName[counter] + ' ' + lName[counter]
+    document.getElementById('status').innerHTML = status[counter]
     document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter + 1
   } else {
