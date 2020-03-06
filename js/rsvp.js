@@ -17,7 +17,7 @@ formUpload.addEventListener('submit', function(e) {
   e.preventDefault()
   message = document.getElementById('message').value
   hName = document.getElementById('hostName').value
-  console.log(message)
+  //console.log(message)
   const file = document.getElementById('fileInput').files[0]
   const formData = new FormData()
   const url = "https://www.margotbits.com/rsvp-bernie/php/process.php"
@@ -49,6 +49,8 @@ formUpload.addEventListener('submit', function(e) {
       }
       document.getElementById('contactCount').innerHTML = 1
       document.getElementById('phone').innerHTML = phone[0]
+      document.getElementById('name').innerHTML = fName[0] + ' ' + lName[0]
+      document.getElementById('status').innerHTML = status[0]
       document.getElementById('messageDisplay').innerHTML = custom
       const counter = Number(document.getElementById('contactNext').dataset.count)
       document.getElementById('contactNext').dataset.count = counter + 1;
@@ -100,6 +102,8 @@ prevBtn.addEventListener('click', function(e) {
 
     document.getElementById('contactCount').innerHTML = counter - 1
     document.getElementById('phone').innerHTML = phone[counter-2]
+    document.getElementById('name').innerHTML = fName[counter-2] + ' ' + lName[counter-2]
+    document.getElementById('status').innerHTML = status[counter-2]
     document.getElementById('messageDisplay').innerHTML = custom
     document.getElementById('contactNext').dataset.count = counter - 1
   } else {
