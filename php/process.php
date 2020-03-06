@@ -26,7 +26,7 @@ if (empty($errors)) {
     $fNames = [];
     $lNames = [];
     $phoneNums = [];
-    $status = [];
+    $rsvp = [];
     if (($handle = fopen($dir.$fileName,'r')) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         if ($row == 1) {
@@ -57,7 +57,7 @@ if (empty($errors)) {
             $fNames[] = $data[$cfN];
             $lNames[] = $data[$clN];
             $phoneNums[] = $data[$cp];
-            $status[] = $data[$cs];
+            $rsvp[] = $data[$cs];
           }
         } // if first row
       } // while there is data
@@ -75,13 +75,13 @@ if (empty($errors)) {
   }
   fclose($handle);
   unlink($dir.$fileName);
-  if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($status) == 0) {
+  if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($rsvp) == 0) {
     http_response_code(400);
     echo json_encode(array('error' => 'CSV is missing data.'));
     exit();
   } else {
     http_response_code(200);
-    echo json_encode(array('firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'status' => $status));
+    echo json_encode(array('firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'rsvp' => $rsvp));
     exit();
   } // check that the columns were found and array populated
 } // if there are errors

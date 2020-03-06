@@ -7,7 +7,7 @@ $(document).ready(function () {
 /* form input submit button */
 const formUpload = document.getElementById('formUpload')
 var hName = document.getElementById('hostName').value;
-var message, hName, fName, lName, phone, status;
+var message, hName, fName, lName, phone, rsvp;
 var regEx = /\[\w+\]/g
 var regExF = /\[FirstName+\]/g
 var regExL = /\[LastName+\]/g
@@ -37,8 +37,8 @@ formUpload.addEventListener('submit', function(e) {
       fName = data.firstName
       lName = data.lastName
       phone = data.phone
-      status = data.status
-      console.log(status[0])
+      rsvp = data.rsvp
+      console.log(rsvp[0])
 
       custom = custom.replace(regExF,fName[0])
       custom = custom.replace(regExL,lName[0])
