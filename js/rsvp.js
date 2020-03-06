@@ -38,7 +38,7 @@ formUpload.addEventListener('submit', function(e) {
       lName = data.lastName
       phone = data.phone
       status = data.status
-      console.log(status)
+      console.log(status[0])
 
       custom = custom.replace(regExF,fName[0])
       custom = custom.replace(regExL,lName[0])
