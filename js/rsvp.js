@@ -34,10 +34,11 @@ formUpload.addEventListener('submit', function(e) {
       throw data.error
     } else {
       var custom = message
-      fName = data.firstName;
-      lName = data.lastName;
-      phone = data.phone;
-      status = data.status;
+      fName = data.firstName
+      lName = data.lastName
+      phone = data.phone
+      status = data.status
+      console.log(status)
 
       custom = custom.replace(regExF,fName[0])
       custom = custom.replace(regExL,lName[0])
