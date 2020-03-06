@@ -15,6 +15,15 @@ var regExH = /\[HostFirstName+\]/g
 
 formUpload.addEventListener('submit', function(e) {
   e.preventDefault()
+  // reset form
+
+  document.getElementById('contactCount').innerHTML = 0
+  document.getElementById('phone').innerHTML = ''
+  document.getElementById('name').innerHTML = ''
+  document.getElementById('rsvp').innerHTML = ''
+  document.getElementById('messageDisplay').innerHTML = ''
+  document.getElementById('contactNext').dataset.count = 0;
+
   message = document.getElementById('message').value
   hName = document.getElementById('hostName').value
   //console.log(message)
