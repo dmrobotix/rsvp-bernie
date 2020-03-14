@@ -22,10 +22,12 @@ if (empty($errors)) {
     $cfN = -1;
     $clN = -1;
     $cp = -1;
+    $ce = -1;
     $cs = -1;
     $fNames = [];
     $lNames = [];
     $phoneNums = [];
+    $emails = [];
     $rsvp = [];
     if (($handle = fopen($dir.$fileName,'r')) !== FALSE) {
       while(($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -42,6 +44,9 @@ if (empty($errors)) {
               case 'phone':
                 $cp = $c;
                 break;
+              case 'email':
+                $ce = $c;
+                break;
               case 'status':
                 $cs = $c;
                 break;
@@ -49,7 +54,7 @@ if (empty($errors)) {
           } // for each column in row
           $row = $row + 1;
         } else {
-          if ($cfN == -1 || $clN == -1 || $cp == -1 || $cs == -1) {
+          if ($cfN == -1 || $clN == -1 || $cp == -1 || $ce ==-1 || $cs == -1) {
             http_response_code(400);
             echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
             exit();
@@ -57,6 +62,7 @@ if (empty($errors)) {
             $fNames[] = $data[$cfN];
             $lNames[] = $data[$clN];
             $phoneNums[] = $data[$cp];
+            $emails[] = $data[$ce];
             $rsvp[] = $data[$cs];
           }
         } // if first row
@@ -75,13 +81,13 @@ if (empty($errors)) {
   }
   fclose($handle);
   unlink($dir.$fileName);
-  if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($rsvp) == 0) {
+  if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($emails) || count($rsvp) == 0) {
     http_response_code(400);
     echo json_encode(array('error' => 'CSV is missing data.'));
     exit();
   } else {
     http_response_code(200);
-    echo json_encode(array('firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'rsvp' => $rsvp));
+    echo json_encode(array('firstName' => $fNames, 'lastName' => $lNames, 'phone' => $phoneNums, 'email' => $emails, 'rsvp' => $rsvp));
     exit();
   } // check that the columns were found and array populated
 } // if there are errors
