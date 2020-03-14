@@ -54,7 +54,7 @@ if (empty($errors)) {
           } // for each column in row
           $row = $row + 1;
         } else {
-          if ($cfN == -1 || $clN == -1 || $cp == -1 || $ce ==-1 || $cs == -1) {
+          if ($cfN == -1 || $clN == -1 || $cp == -1 || $ce == -1 || $cs == -1) {
             http_response_code(400);
             echo json_encode(array('error' => 'Unable to process file, missing some columns.'));
             exit();
@@ -81,7 +81,7 @@ if (empty($errors)) {
   }
   fclose($handle);
   unlink($dir.$fileName);
-  if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($emails) || count($rsvp) == 0) {
+  if (count($fNames) == 0 || count($lNames) == 0 || count($phoneNums) == 0 || count($emails) == 0 || count($rsvp) == 0) {
     http_response_code(400);
     echo json_encode(array('error' => 'CSV is missing data.'));
     exit();
